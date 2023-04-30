@@ -17,9 +17,27 @@ function App() {
   };
 
   const handleSubmit = () => {
-    // 스트라이크, 볼, 정답 유무
-
     const answers = answer.split("").map((item) => Number(item));
+    // 유효성 검사 : 숫자만 입력
+    if (answers.some((number) => isNaN(number))) {
+      alert("숫자만 입력해주세요");
+      return;
+    }
+    // 유효성 검사 : 최대 4자리만 입력
+    if (answers.length !== 4) {
+      alert("4자리 숫자만 입력해주세요");
+      return;
+    }
+    // 유효성 검사 : 중복 숫자
+    const isDuplicate = answers.some((number) => {
+      // 앞 뒤에서 첫 탐색 인덱스 일치 여부 확인
+      return answers.indexOf(number) !== answers.lastIndexOf(number);
+    });
+
+    if (isDuplicate) {
+      alert("입력 값에 중복이 있습니다.");
+      return;
+    }
 
     const { strike, ball } = randomNumber.reduce(
       (prev, cur, index) => {
