@@ -1,13 +1,28 @@
+import { TodoType } from '../App';
 import TodoItem from '../ListItem/TodoItem';
 import styles from './TodoList.module.css';
 
-const TodoList = () => {
-  const arr = ['React', 'Typescript', 'Javascript', 'CSS', 'HTML'];
+interface TodoListProps {
+  todos: TodoType[];
+  onToggleClick: (id: number) => void;
+  onRemoveClick: (id: number) => void;
+}
+
+const TodoList = (props: TodoListProps) => {
   return (
     <section>
       <ol className={styles.olContainer}>
-        {arr.map((str, index) => {
-          return <TodoItem key={`${str}_${index}`} text={str} />;
+        {props.todos.map((todo) => {
+          return (
+            <TodoItem
+              id={todo.id}
+              key={todo.id}
+              text={todo.text}
+              isChecked={todo.isChecked}
+              onRemoveClick={props.onRemoveClick}
+              onToggleClick={props.onToggleClick}
+            />
+          );
         })}
       </ol>
     </section>
