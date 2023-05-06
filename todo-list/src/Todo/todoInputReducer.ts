@@ -1,9 +1,9 @@
-type TodoInputStateType = {
+export type TodoInputStateType = {
   text: string;
 };
 
 // change, clear
-type TodoInputActionType =
+export type TodoInputActionType =
   | {
       type: 'change';
       payload: string;
