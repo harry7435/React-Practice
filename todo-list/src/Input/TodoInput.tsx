@@ -1,11 +1,7 @@
 import { ChangeEvent, FormEvent } from 'react';
 import { RiChatNewLine } from 'react-icons/ri';
 import styles from './TodoInput.module.css';
-import {
-  useInputTodoDispatch,
-  useInputTodoState,
-  useTodoDispatch,
-} from '../Todo/TodoProvider';
+import { useInputTodoDispatch, useInputTodoState, useTodoDispatch } from '../Todo/TodoProvider';
 
 const TodoInput = () => {
   const todoDispatch = useTodoDispatch();
