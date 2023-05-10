@@ -1,7 +1,7 @@
 import styles from './Header.module.css';
 import Button from './components/Button';
 import Space from './components/Space';
-import Tab from './components/Tab';
+import Tabs from './components/Tabs';
 
 export default function Header() {
   return (
@@ -37,7 +37,7 @@ export default function Header() {
           Star
         </Button>
       </div>
-      <Tab />
+      <Tabs />
     </div>
   );
 }
