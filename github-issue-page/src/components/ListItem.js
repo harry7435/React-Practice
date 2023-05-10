@@ -1,20 +1,17 @@
+import Badge from './Badge';
 import styles from './ListItem.module.css';
+import ListItemLayout from './ListItemLayout';
 
 export default function ListItem({ checked, onChangeCheckBox, onClickTitle }) {
   return (
-    <div className={styles.wrapper}>
-      <input
-        type="checkbox"
-        className={styles.checkbox}
-        value={checked}
-        onChange={onChangeCheckBox}
-      />
+    <ListItemLayout>
       <div>
-        <div onClick={onClickTitle} className={styles.title}>
+        <div role="button" onClick={onClickTitle} className={styles.title}>
           Issue Example
+          <Badge title="Bug" color="red" />
         </div>
         <div className={styles.description}># Description</div>
       </div>
-    </div>
+    </ListItemLayout>
   );
 }
