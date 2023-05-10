@@ -1,4 +1,5 @@
 import styles from './App.module.css';
+import Footer from './Footer';
 import Header from './Header';
 import ListContainer from './ListContainer';
 
@@ -8,7 +9,7 @@ function App() {
       <div className={styles.nav}>Nav</div>
       <Header />
       <ListContainer />
-      <div className={styles.footer}>Footer</div>
+      <Footer />
     </>
   );
 }

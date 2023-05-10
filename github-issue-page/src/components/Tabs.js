@@ -1,13 +1,21 @@
+import { useState } from 'react';
 import styles from './Tabs.module.css';
 import cx from 'clsx';
 
 const tabList = ['Code', 'Issues', 'Pull Request'];
 
 export default function Tabs() {
+  const [selectedTabIdx, setSelectedTabIdx] = useState(0);
+
   return (
     <ul className={styles.tabList}>
-      {tabList.map((tab) => (
-        <Tab selected={true} title={tab} />
+      {tabList.map((tab, idx) => (
+        <Tab
+          key={`${idx}`}
+          selected={selectedTabIdx === idx}
+          title={tab}
+          onClick={() => setSelectedTabIdx(idx)}
+        />
       ))}
     </ul>
   );
