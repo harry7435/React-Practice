@@ -56,7 +56,11 @@ function ListFilter() {
         <ListFilterItem>Assignee</ListFilterItem>
         <ListFilterItem>Sort</ListFilterItem>
       </div>
-      <Modal opened={showModal} onClose={() => setShowModal(false)} />
+      <Modal
+        opened={showModal}
+        onClose={() => setShowModal(false)}
+        placeholder="Filter labels"
+      />
     </>
   );
 }
