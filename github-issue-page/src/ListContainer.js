@@ -10,22 +10,27 @@ import ListFilter from './components/ListFilter';
 
 import styles from './ListContainer.module.css';
 
+const GITHUB_API = 'https://api.github.com';
+
 export default function ListContainer() {
   const [inputValue, setInputValue] = useState('is:pr is:open');
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
   const maxPage = 10;
 
-  async function getData() {
+  async function getData(pageParam) {
     const { data } = await axios.get(
-      `https://api.github.com/repos/facebook/react/issues`
+      `${GITHUB_API}/repos/facebook/react/issues`,
+      {
+        params: { page: pageParam },
+      }
     );
     setList(data);
   }
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData(page);
+  }, [page]);
 
   return (
     <>
